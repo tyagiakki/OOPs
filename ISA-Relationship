@@ -1,0 +1,53 @@
+package ISARelationship;
+//parent class
+class Account{
+	double balance;
+	void deposit() {
+		System.out.println("Deposit");
+	}
+	void withdraw() {
+		System.out.println("Withdraw");
+	}
+	void ROI() {
+		System.out.println("Account class ::: ROI 3%");
+	}
+}
+//child class------
+class SavingAccount extends Account{
+	void limitOfTran() {
+		System.out.println("Limit of transition");
+	}
+	@Override
+	void ROI() {
+		//super - parent class reference
+		//this -current class reference
+		super.ROI();//calling parent ROI
+		System.out.println("Saving :::ROI 4% ");
+	}
+	//when we do override the parent method will be hide......
+}
+//child class------
+class CurrentAccount extends Account{
+	void odLimit() {
+		System.out.println("OD Limit");
+	}
+	void ROI() {
+		System.out.println("Current :: ROI 5%");
+	}
+}
+public class ISA {
+	public static void main(String[] args) {
+		SavingAccount sa=new SavingAccount();
+		sa.deposit();
+		sa.withdraw();
+		sa.limitOfTran();
+		sa.ROI();
+		System.out.println("**************************");
+	    CurrentAccount ca=new CurrentAccount();
+	    ca.deposit();
+		ca.withdraw();
+		ca.odLimit();
+		ca.ROI();
+	}
+
+}
