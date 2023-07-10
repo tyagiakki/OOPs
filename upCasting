@@ -1,0 +1,93 @@
+package oops;
+
+//parent class
+
+class Account{
+	double balance;
+	int x;//instance variable:-these are those variable which can be used by making
+	       //the objects.....
+	 Account(){
+		 x=10;
+		 System.out.println("Account class default constructor");
+	 }
+	Account(int x){
+		//this();//local variable
+		this.x=x;//instance variable=local variable
+		System.out.println("Account class Param constructor");
+	}
+	void deposit() {
+		System.out.println(" Acc :: Deposit");
+	}
+	void withDraw() {
+		System.out.println("Acc :: withdraw");
+	}
+	void roi() {
+		
+System.out.println("Account roi ::: 3%");
+	}
+}
+//extends keyword
+class SavingAccount extends Account{
+	int y;
+	int x;
+	 SavingAccount() {
+
+		// super(1);
+	//	 super();//parent class default const invoke hoga
+		 x=11;
+		y=20+super.x+this.x;
+		System.out.println("SA ="+y);
+	}
+	 SavingAccount(int x){
+		// super(2);//first line
+		 this();
+		 this.x=x;//+super.x;
+		 y=20+this.x+super.x;
+		 System.out.println("SavingAcc param constructor " +y);
+	 }
+	void limitoftrans() {
+		System.out.println("Saving Account limit of tansaction");
+		
+	}
+	@Override
+	//when we do override parent method will be hide....
+	
+	void roi() {
+		//super keyword=Parent class reference..
+		//This keyword=Current class reference..
+		super.roi();
+		//here super is used to access the parent class roi() method.....
+		System.out.println("Saving Account roi : 4%");
+	}
+}
+class CurrentAccount extends Account{
+	void odlimit() {
+		System.out.println("od limit of Current Account");
+		
+	}
+	@Override
+	void roi() {
+		super.roi();
+		System.out.println("Current Account roi : 5%");
+	}
+}
+class Accountcaller {
+	//UPCASTING..................................
+	void call(Account ac)
+	{
+		ac.deposit();
+		ac.withDraw();
+		ac.roi();
+	}
+	
+}
+//ISA :- ISA relationship is a parent child relationship........
+public class ISA {
+	public static void main(String[] args) {
+	
+		Accountcaller c=new Accountcaller();
+		c.call(new SavingAccount());
+	c.call(new CurrentAccount());
+	}
+
+}
