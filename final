@@ -1,0 +1,31 @@
+package oops;
+//if we put prior to any class then it can not be inherited......
+class p1{
+	final int x;//it can only be initialized by using constructor..
+	p1(){
+		x=100;	
+	}
+	p1(int x){
+		this.x=x;
+		//this();
+	}
+	//final- if we put final prior to any method then it can not be override in child class.
+	void show() {
+		System.out.println("in Parent class");
+	}
+}
+class c1 extends p1{
+
+	void show() {
+		
+		System.out.println("In child class");
+	}
+	
+}
+
+public class finalvfinalisevfinally {
+public static void main(String[] args) {
+	c1 c=new c1();
+	c.show();
+}
+}
