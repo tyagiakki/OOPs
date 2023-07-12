@@ -1,0 +1,29 @@
+package oops;
+class P{
+	int x;
+	P(){
+		x=1;
+	}
+}
+class Q extends P{
+	int x;
+	Q(){
+		x=2;
+	}
+}
+class R extends Q{
+	int x;
+	R(int x){//ambiguity problem arises as local and instance variable both are same(x)......
+		this.x=x+10;
+	int z=x+this.x+super.x +((P)this).x	;
+	System.out.println("Total= "+z);
+	}
+}
+public class Multilevel {
+public static void main(String[] args) {
+	R obj=new R(5);
+}
+}
+
+
+
