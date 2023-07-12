@@ -1,0 +1,25 @@
+package oops;
+class A{
+	int x;
+	A(){
+	x=10;
+	}
+	void show() {
+		System.out.println("P show............");
+	}
+}
+class C extends A{
+	C(){
+		x=20;
+	}
+	void show() {
+		System.out.println("C show............");
+	}
+}
+public class Binding {
+public static void main(String[] args) {
+	A obj=new C();  //upcasting.......
+	obj.show();  //overriding object pr depend kregi hmesha.....
+	System.out.println(obj.x);  //variables jo honge vo hmesha class s bind honga eisi wjha s 10 print hoga.....
+}
+}
