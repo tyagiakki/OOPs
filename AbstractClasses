@@ -1,0 +1,73 @@
+package oops;
+abstract class Acc{
+	int x;//instance variable
+	Acc(){
+		x=10;
+		System.out.println("Default constructor");
+	}
+	Acc(int x){//local variable
+		this();
+		this.x=x;
+		System.out.println("Param constructor");
+	}
+	void withdraw() {
+		System.out.println("Common withdraw");
+	}
+	void deposit() {
+		System.out.println("Common deposit");
+	}
+	abstract void roi();
+	
+}
+class Savings extends Acc{
+	int x;
+	Savings(){
+		super(4);//constructor chaining.....
+		System.out.println("Savings Default");
+	}
+Savings(int x){
+	//super(2);
+	this();
+	this.x=x;
+	int y=10+x+super.x;
+	System.out.println("Total Savings = "+y);
+	
+}
+void roi() {
+	System.out.println("Roi must be:: 4%");
+}
+	
+}
+class Current extends Acc{
+	int x;
+	int y;
+	Current(){
+		super(4);
+		System.out.println("Default Current");
+	}
+	Current(int x){
+		this();//Constructor chaining
+		//super(10);
+		this.x=x;
+		y=10+super.x+this.x;
+		System.out.println("Total Current= "+y);
+		
+	}
+	void roi() {
+		System.out.println("Roi must be:: 5%");
+	}
+	
+}
+public class absT {
+	public static void main(String[] args) {
+//		Savings s=new Savings(20);
+//		s.deposit();
+//		s.withdraw();
+//		s.roi();
+		Current c=new Current(100);
+		c.deposit();
+		c.withdraw();
+		c.roi();
+	}
+
+}
