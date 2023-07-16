@@ -1,0 +1,31 @@
+package oops;
+
+interface F {
+int add();
+void show();
+}
+ abstract class common implements F{
+	
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("Show the Interface");
+	}
+	
+}
+class inter extends common implements F{
+
+	@Override
+	public int add() {
+		System.out.println("Additon");
+		return 0;
+	}	
+}
+public class InterF{
+	public static void main(String[] args) {
+		inter obj=new inter();
+		obj.add();
+		obj.show();
+	}	
+}
